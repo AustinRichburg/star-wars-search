@@ -37,8 +37,8 @@
 
             <!-- PAGE NUMBERS -->
             <div class="pages">
-                <ul>
-                    <li v-for="page in pageNums"><a class="btn" @click="changePage($event.target.textContent)">{{ page }}</a></li>
+                <ul class="pagination pagination-lg justify-content-center" role="group">
+                    <li class="page-item" v-for="page in pages"><a class="page-link" @click="changePage($event.target.textContent)">{{ page }}</a></li>
                 </ul>
             </div>
         </div>

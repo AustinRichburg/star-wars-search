@@ -20,19 +20,3 @@
 .people li {
     margin: 5px 0;
 }
-
-.pages ul {
-    margin: 0 auto;
-    list-style-type: none;
-    text-align: center;
-    padding: 0;
-}
-
-.pages li {
-    margin: 10px 5px;
-    display: inline;
-}
-
-.pages a.btn {
-    font-size: 20px;
-}
