@@ -48,10 +48,10 @@ new Vue({
             }
             return pages;
         },
-        changePage: function(e){
-            console.log(e);
-            this.currPage = e;
-            this.getData(peopleUrl + "?page=" + e.toString());
+        changePage: function(i){
+            console.log(i);
+            this.currPage = i;
+            this.getData(peopleUrl + "?page=" + i.toString());
         },
         initPeople: function(data){
             this.people = [];
@@ -71,7 +71,6 @@ new Vue({
             $("#myModal").modal("show");
         },
         addOverlay(i){
-            console.log(i);
             document.querySelectorAll(".overlay")[i].classList.add("layer");
         },
         removeOverlay(i){
@@ -84,7 +83,7 @@ new Vue({
             pageItems.forEach(function(page){
                 page.classList.remove("active");
             });
-            document.querySelector(".pagination > .page-item:nth-child(" + this.currPage + ")").classList.add("active");
+            document.querySelectorAll(".pagination > .page-item")[this.currPage].classList.add("active");
         }
     }
 });

@@ -62,7 +62,19 @@
             <!-- PAGE NUMBERS -->
             <div class="pages">
                 <ul class="pagination pagination-lg justify-content-center" role="group">
-                    <li class="page-item" v-for="page in pages"><a class="page-link" @click="changePage($event.target.textContent)">{{ page }}</a></li>
+                    <li class="page-item" :class="{disabled:currPage===1}">
+                        <a class="page-link" aria-label="Previous" @click="changePage(currPage-1)">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item" v-for="(page, index) in pages"><a class="page-link" @click="changePage(index+1)">{{ page }}</a></li>
+                    <li class="page-item" :class="{disabled:currPage===pages.length}">
+                        <a class="page-link" aria-label="Next" @click="changePage(currPage+1)">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
