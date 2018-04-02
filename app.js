@@ -1,5 +1,11 @@
 var peopleUrl = "https://swapi.co/api/people/";
 
+$(".card-body").hover(function(){
+    $(this).css("background-color", "red");
+    $(this).text("hovered");
+    console.log("called");
+});
+
 new Vue({
     el: "#app",
     data: {
@@ -7,7 +13,8 @@ new Vue({
         currPage: 1,
         people: [],
         pages: [],
-        peopleUrl: "https://swapi.co/api/people/"
+        currPerson: "",
+        peopleUrl: "https://swapi.co/api/people/",
     },
     created() {
         this.getData(this.peopleUrl);
@@ -57,6 +64,18 @@ new Vue({
             if(this.data.prev === null){
                 this.currPage = 1;
             }
+        },
+        showDetails: function(i){
+            this.currPerson = this.people[i];
+            console.log(this.currPerson);
+            $("#myModal").modal("show");
+        },
+        addOverlay(i){
+            console.log(i);
+            document.querySelectorAll(".overlay")[i].classList.add("layer");
+        },
+        removeOverlay(i){
+            document.querySelectorAll(".overlay")[i].classList.remove("layer");
         }
     },
     watch: {
